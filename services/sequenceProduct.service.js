@@ -14,19 +14,19 @@ function product(parameters) {
     var deferred = Q.defer();
 
     if(!parameters.m) {
-        deferred.reject('Valor de M faltando.')
+        deferred.reject('Campo m faltando no body.')
     }
     if(!parameters.n) {
-        deferred.reject('Valor de N faltando.')
+        deferred.reject('Campo n faltando no body.')
     }
     if(!parameters.type) {
-        deferred.reject('Type faltando.');
+        deferred.reject('Campo type faltando no body.');
     }
     if(parameters.m > parameters.n) {
-        deferred.reject('O valor de M não pode ser maior que o valor de N.');
+        deferred.reject('O valor de m não pode ser maior que o valor de n');
     }
     if(parameters.m < 1 || parameters.n < 1) {
-        deferred.reject('Apenas valores maiores ou igual a 1 são aceitos.');
+        deferred.reject('Apenas valores maiores ou igual a 1 são aceitos');
     }
 
     if(parameters.type === 'ITERATIVE') {
@@ -54,7 +54,6 @@ function recursive(m, n) {
     if(m < n) {
         return value * recursive(m + 1, n);
     } 
-    else {
-        return value;
-    }
+    
+    return value;
 }

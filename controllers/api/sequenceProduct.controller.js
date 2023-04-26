@@ -17,6 +17,8 @@ async function sequenceProduct(req, res) {
         );
     })
     .catch(error => {
-        res.status(400).send('Error => ' + error);
+        res.status(400).send({
+            "error_message" : error
+        });
     })
 }
